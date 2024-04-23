@@ -1,12 +1,21 @@
-library(aqp)
+## Author: Elliot Hohn
+## Date: April 22, 2024
+
 library(soilDB)
-#library(terra)
 library(stringr)
 library(sf)
 library(geojsonsf)
 library(tidyverse)
 
 sf_use_s2(FALSE)
+
+# The first step of this process was to go to gSSURGO ("gridded SSURGO") and
+# download the spatial data for each of the states or terratories for this 
+# analysis (Puerto Rico, US Virgin Islands, Northern Mariana Islands, American
+# Samoa, Alaska, Hawaii, and Guam). The downloads are geodatabases, and I loaded
+# these indvidually into QGIS and exported just the MUPOLYGONS data as a geojson
+# into the mukeys folder of this repo. I didn't push these datasets up to GitHub
+# because they are too big, and it's easy to recreate locally if someone wants to.
 
 # function for generating output table
 calculate_prime_farmland <- function(mukeys_sf, location) {
