@@ -20,11 +20,11 @@ sf_use_s2(FALSE)
 # function for generating output table
 calculate_prime_farmland <- function(mukeys_sf, location) {
   mukeys <- unique(mukeys_sf$MUKEY)
-  mukeys = paste0(str_pad(mukeys, width = 4, side = "left"))
-  mukeys_string = toString(sQuote(mukeys, q = FALSE))
+  mukeys <- paste0(str_pad(mukeys, width = 4, side = "left"))
+  mukeys_string <- toString(sQuote(mukeys, q = FALSE))
   
-  qry = "SELECT mukey, muname, farmlndcl FROM mapunit WHERE mukey in (%s);"
-  qry_all = sprintf(qry, mukeys_string)
+  qry <- "SELECT mukey, muname, farmlndcl FROM mapunit WHERE mukey in (%s);"
+  qry_all <- sprintf(qry, mukeys_string)
   
   res <- SDA_query(qry_all)
   
